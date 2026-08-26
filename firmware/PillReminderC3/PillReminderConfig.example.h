@@ -12,7 +12,7 @@ constexpr char WEBHOOK_URL[] = "PASTE_GOOGLE_APPS_SCRIPT_EXEC_URL_HERE";
 // private random phrase before deploying the web app.
 constexpr char DEVICE_TOKEN[] = "CHANGE_THIS_TO_A_PRIVATE_RANDOM_PHRASE";
 constexpr char DEVICE_NAME[] = "Pill Reminder v1";
-constexpr char FIRMWARE_VERSION[] = "v0.1.4";
+constexpr char FIRMWARE_VERSION[] = "v0.2.0";
 
 // Chicago time, including automatic daylight-saving transitions.
 constexpr char TIME_ZONE[] = "CST6CDT,M3.2.0/2,M11.1.0/2";
