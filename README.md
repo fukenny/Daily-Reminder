@@ -4,19 +4,19 @@ An ESP32-C3 medication reminder with three RGB LEDs and a confirmation button.
 
 ## Current status
 
-Firmware v0.1.4 is a hardware bring-up build. It deliberately excludes Wi-Fi,
-timekeeping, storage, logging, Serial, and PWM while the integrated LED and
-button behavior is verified.
+Firmware v0.2.0 is the light-show checkpoint. It deliberately excludes Wi-Fi,
+timekeeping, storage, logging, and Serial while the display behavior is tuned.
 
-The current sequence lights exactly one channel at a time:
+Before confirmation, the eight-second attention loop contains:
 
-1. LED 1: red, green, blue
-2. LED 2: red, green, blue
-3. LED 3: red, green, blue
+- Six-color chase
+- Alternating red/blue warning lights
+- Yellow/cyan/magenta rotation
+- White strobe
+- Red/green/blue comet chase
 
-Each illuminated step lasts 900 ms followed by a 300 ms dark interval. Pressing
-and releasing the button toggles between the test sequence and all three LEDs
-solid green.
+Pressing and releasing the button changes all three LEDs to green at
+approximately 50% brightness. Rebooting restarts the attention state.
 
 ## Hardware
 
@@ -41,7 +41,6 @@ the button ground share GND.
 - `firmware/PillReminderC3/`: current integrated firmware
 - `diagnostics/RGBHardwareTest/`: isolated nine-channel GPIO test
 - `google-apps-script/`: optional Google Sheets logging endpoint
-- `docs/`: project documentation
 
 ## Configuration and secrets
 
@@ -52,7 +51,7 @@ locally when full Wi-Fi functionality is restored.
 ## Planned behavior
 
 - Attention animation until medication is confirmed
-- Button press changes the display to steady green
+- Button press changes the display to dim steady green
 - Medication day resets at 2:00 a.m. Chicago time
 - State survives power loss
 - Optional Google Sheets event logging
